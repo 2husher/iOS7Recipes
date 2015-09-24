@@ -16,33 +16,82 @@
 
 @implementation MasterViewController
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
+    [self configureDetailItem];
+}
 
-    UIImage *image = [[UIImage alloc] init];
+- (void)configureDetailItem
+{
+    UIImage *image        = [[UIImage alloc] init];
+    UIImage *resizedImage = [[UIImage alloc] init];
+    UIImage *scaledImage  = [[UIImage alloc] init];
+    if (self.mainImage != nil)
+    {
+        image = self.mainImage;
+        resizedImage = [self scaleImage:self.mainImage
+                                 toSize:self.detailViewController.imageView.frame.size];
+        scaledImage  = [self aspectScaleImage:self.mainImage
+                                       toSize:self.detailViewController.imageView.frame.size];
+    }
+
     self.detailElems = [@[
-                         @{ @"label" : @"Select an Image to Display",
-                            @"image" : image,
-                            @"showsButtons" : @(YES) },
-                         @{ @"label" : @"Chosen Image Resized",
-                            @"image" : image,
-                            @"showsButtons" : @(NO) },
-                         @{ @"label" : @"Chosen Image Scaled",
-                            @"image" : image,
-                            @"showsButtons" : @(NO) }
-                         ] mutableCopy];
+                          @{ @"label" : @"Select an Image to Display",
+                             @"image" : image,
+                             @"showsButtons" : @(YES) },
+                          @{ @"label" : @"Chosen Image Resized",
+                             @"image" : resizedImage,
+                             @"showsButtons" : @(NO) },
+                          @{ @"label" : @"Chosen Image Scaled",
+                             @"image" : scaledImage,
+                             @"showsButtons" : @(NO) }
+                          ] mutableCopy];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController =
+        (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
+}
+
+-(UIImage *)aspectScaleImage:(UIImage *)image toSize:(CGSize)size
+{
+    if (image.size.height < image.size.width)
+    {
+        float ratio = size.height / image.size.height;
+        CGSize newSize = CGSizeMake(image.size.width * ratio, size.height);
+        UIGraphicsBeginImageContext(newSize);
+        [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    }
+    else {
+        float ratio = size.width / image.size.width;
+        CGSize newSize = CGSizeMake(size.width, image.size.height * ratio);
+        UIGraphicsBeginImageContext(newSize);
+        [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    }
+    UIImage *aspectScaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return aspectScaledImage;
 }
 
 #pragma mark - Segues
@@ -51,6 +100,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"])
     {
+        [self configureDetailItem];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDictionary *object   = self.detailElems[indexPath.row];
 
@@ -59,7 +109,8 @@
             (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
 
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        controller.navigationItem.leftBarButtonItem
+            = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
 }
@@ -74,14 +125,17 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (self.mainImage == nil)
+        return 1;
+    else
+        return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
+    UITableViewCell *cell =
+        [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     if (indexPath.row == 0)
         cell.textLabel.text = NSLocalizedString(@"Selected Image", @"Detail");
@@ -114,5 +168,18 @@
 
 }
 
+# pragma mark - DetailViewControllerDelegateProtocol Methods
+
+- (void)detailViewController:(DetailViewController *)controller didSelectImage:(UIImage *)image
+{
+    self.mainImage = image;
+    [self.tableView reloadData];
+}
+
+- (void)detailViewControllerDidClearImage:(DetailViewController *)controller
+{
+    self.mainImage = nil;
+    [self.tableView reloadData];
+}
 
 @end

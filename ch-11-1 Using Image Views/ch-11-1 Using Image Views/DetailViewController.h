@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DetailViewControllerDelegateProtocol;
+
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
+
+@property (nonatomic, weak) id <DetailViewControllerDelegateProtocol> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -22,6 +26,13 @@
 
 - (IBAction)selectImage:(id)sender;
 - (IBAction)clearImage:(id)sender;
+
+@end
+
+@protocol DetailViewControllerDelegateProtocol <NSObject>
+
+- (void)detailViewController:(DetailViewController *)controller didSelectImage:(UIImage *)image;
+- (void)detailViewControllerDidClearImage:(DetailViewController *)controller;
 
 @end
 

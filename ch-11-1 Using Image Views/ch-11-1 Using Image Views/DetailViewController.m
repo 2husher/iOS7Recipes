@@ -84,6 +84,8 @@
 - (IBAction)clearImage:(id)sender
 {
     self.imageView.image = nil;
+
+    [self.delegate detailViewControllerDidClearImage:self];
 }
 
 # pragma mark - UIImagePickerControllerDelegate Methods
@@ -99,6 +101,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     UIImage *image = [info valueForKey:@"UIImagePickerControllerOriginalImage"];
     self.imageView.image = image;
     [self.pop dismissPopoverAnimated:YES];
+
+    [self.delegate detailViewController:self didSelectImage:image];
 }
 
 @end
