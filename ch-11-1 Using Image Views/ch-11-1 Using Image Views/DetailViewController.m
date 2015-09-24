@@ -57,6 +57,7 @@
     {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         picker.delegate   = self;
+
         self.pop = [[UIPopoverController alloc]
                     initWithContentViewController:picker];
         self.pop.delegate = self;
