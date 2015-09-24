@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (weak, nonatomic) IBOutlet UIButton *selectImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *clearImageButton;
+
 @property (strong, nonatomic) UIPopoverController *pop;
 
 - (IBAction)selectImage:(id)sender;

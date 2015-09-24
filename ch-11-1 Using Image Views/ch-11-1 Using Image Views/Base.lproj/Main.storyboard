@@ -57,7 +57,7 @@
                                     <action selector="clearImage:" destination="JEX-9P-axG" eventType="touchUpInside" id="L4V-bU-hhb"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K2L-n0-umX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K2L-n0-umX">
                                 <rect key="frame" x="16" y="135" width="568" height="377"/>
                             </imageView>
                         </subviews>
@@ -81,8 +81,10 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="clearImageButton" destination="0N3-zg-FCT" id="Xc4-ct-nod"/>
                         <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
                         <outlet property="imageView" destination="K2L-n0-umX" id="GVU-Fx-hia"/>
+                        <outlet property="selectImageButton" destination="oh2-9l-WUA" id="nqP-Fm-Qmx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

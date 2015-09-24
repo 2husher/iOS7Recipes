@@ -32,7 +32,20 @@
     // Update the user interface for the detail item.
     if (self.detailItem)
     {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        BOOL showsButtons;
+        self.detailDescriptionLabel.text = [self.detailItem objectForKey:@"label"];
+        self.imageView.image             = [self.detailItem objectForKey:@"image"];
+        showsButtons                     = [[self.detailItem objectForKey:@"showsButtons"] boolValue];
+        if (showsButtons == NO)
+        {
+            self.selectImageButton.hidden = YES;
+            self.clearImageButton.hidden  = YES;
+        }
+        else if (showsButtons == YES)
+        {
+            self.selectImageButton.hidden = NO;
+            self.clearImageButton.hidden  = NO;
+        }
     }
 }
 
@@ -68,6 +81,13 @@
     }
 }
 
+- (IBAction)clearImage:(id)sender
+{
+    self.imageView.image = nil;
+}
+
+# pragma mark - UIImagePickerControllerDelegate Methods
+
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self.pop dismissPopoverAnimated:YES];
@@ -79,11 +99,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     UIImage *image = [info valueForKey:@"UIImagePickerControllerOriginalImage"];
     self.imageView.image = image;
     [self.pop dismissPopoverAnimated:YES];
-}
-
-- (IBAction)clearImage:(id)sender
-{
-    self.imageView.image = nil;
 }
 
 @end
