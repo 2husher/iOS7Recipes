@@ -98,6 +98,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+# pragma mark - Scaling Methods
+
 -(UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)size
 {
     UIGraphicsBeginImageContext(size);
@@ -122,6 +124,24 @@
         CGSize newSize = CGSizeMake(size.width, image.size.height * ratio);
         UIGraphicsBeginImageContext(newSize);
         [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    }
+    UIImage *aspectScaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return aspectScaledImage;
+}
+
+-(UIImage *)aspectFillImage:(UIImage *)image toSize:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);
+    if (image.size.height< image.size.width)
+    {
+        float ratio = size.height/image.size.height;
+        [image drawInRect:CGRectMake(0, 0, image.size.width*ratio, size.height)];
+    }
+    else
+    {
+        float ratio = size.width/image.size.width;
+        [image drawInRect:CGRectMake(0, 0, size.width, image.size.height*ratio)];
     }
     UIImage *aspectScaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -173,6 +193,15 @@
 
 
     cell.textLabel.text = NSLocalizedString(tableCellNames[indexPath.row], @"Detail");
+
+    if (indexPath.row >= 3 && indexPath.row <= 5 )
+    {
+        CGSize thumbnailSize    = CGSizeMake(120, 75);
+        UIImage *displayImage   = self.filteredImages[indexPath.row - 3];
+        UIImage *thumbnailImage = [self aspectFillImage:displayImage
+                                                 toSize:thumbnailSize];
+        cell.imageView.image = thumbnailImage;
+    }
 
     return cell;
 }
