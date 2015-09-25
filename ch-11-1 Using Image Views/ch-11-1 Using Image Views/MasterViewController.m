@@ -10,7 +10,9 @@
 #import "DetailViewController.h"
 
 @interface MasterViewController ()
-
+{
+    NSArray *tableCellNames;
+}
 @property NSMutableArray *detailElems;
 @end
 
@@ -30,6 +32,11 @@
     [super awakeFromNib];
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
+
+    tableCellNames = @[
+                       @"Selected Image", @"Resized Image", @"Scaled Image",
+                       @"Hue Adjust", @"Straighten Filter", @"Series Filter"
+                       ];
 }
 
 - (void)configureDetailItem
@@ -39,6 +46,7 @@
     UIImage *scaledImage        = [[UIImage alloc] init];
     UIImage *huedImage          = [[UIImage alloc] init];
     UIImage *straightenedImage  = [[UIImage alloc] init];
+    UIImage *filteredImage  = [[UIImage alloc] init];
     if (self.mainImage != nil)
     {
         image             = self.mainImage;
@@ -50,6 +58,8 @@
                                     toSize:self.detailViewController.imageView.frame.size];
         straightenedImage = [self aspectScaleImage:self.filteredImages[1]
                                           toSize:self.detailViewController.imageView.frame.size];
+        filteredImage     = [self aspectScaleImage:self.filteredImages[2]
+                                            toSize:self.detailViewController.imageView.frame.size];
     }
 
     self.detailElems = [@[
@@ -67,6 +77,9 @@
                              @"showsButtons" : @(NO) },
                           @{ @"label" : @"Straightening Filter",
                              @"image" : straightenedImage,
+                             @"showsButtons" : @(NO) },
+                          @{ @"label" : @"Series Filter",
+                             @"image" : filteredImage,
                              @"showsButtons" : @(NO) }
                           ] mutableCopy];
 }
@@ -149,7 +162,7 @@
     if (self.mainImage == nil)
         return 1;
     else
-        return 5;
+        return tableCellNames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -158,39 +171,10 @@
     UITableViewCell *cell =
         [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    if (indexPath.row == 0)
-        cell.textLabel.text = NSLocalizedString(@"Selected Image", @"Detail");
-    else if (indexPath.row == 1)
-        cell.textLabel.text = NSLocalizedString(@"Resized Image", @"Detail");
-    else if (indexPath.row == 2)
-        cell.textLabel.text = NSLocalizedString(@"Scaled Image", @"Detail");
-    else if (indexPath.row == 3)
-        cell.textLabel.text = NSLocalizedString(@"Hue Adjust", @"Detail");
-    else if (indexPath.row == 4)
-        cell.textLabel.text = NSLocalizedString(@"Straighten Filter", @"Detail");
+
+    cell.textLabel.text = NSLocalizedString(tableCellNames[indexPath.row], @"Detail");
 
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    UIImage *image = nil;
-//    NSString *label;
-//    BOOL showsButtons = NO;
-//    if (indexPath.row == 0)
-//    {
-//        label = @"Select an Image to Display";
-//        showsButtons = YES;
-//    }
-//    else if (indexPath.row == 1)
-//    {
-//        label = @"Chosen Image Resized";
-//    }
-//    else if (indexPath.row == 2)
-//    {
-//        label = @"Chosen Image Scaled";
-//    }
-
 }
 
 # pragma mark - DetailViewControllerDelegateProtocol Methods
@@ -213,28 +197,39 @@
 
 -(void)populateImageViewWithImage:(UIImage *)image
 {
-    CIImage *main = [[CIImage alloc] initWithImage:image];
-    CIFilter *hueAdjust = [CIFilter filterWithName:@"CIHueAdjust"];
-    [hueAdjust setDefaults];
-    [hueAdjust setValue:main forKey:@"inputImage"];
-    [hueAdjust setValue:[NSNumber numberWithFloat: 3.14/2.0f]
-                 forKey:@"inputAngle"];
-    CIImage *outputHueAdjust = [hueAdjust valueForKey:@"outputImage"];
+    CIImage *main      = [[CIImage alloc] initWithImage:image];
     CIContext *context = [CIContext contextWithOptions:nil];
-    CGImageRef cgImage1 = [context createCGImage:outputHueAdjust
-                                        fromRect:outputHueAdjust.extent];
+    [self createFilteredImageFromImage:main
+                              WithName:@"CIHueAdjust"
+                              andValue:(3.14/2.0f)
+                             inContext:context];
+    [self createFilteredImageFromImage:main
+                              WithName:@"CIStraightenFilter"
+                              andValue:(3.14f)
+                             inContext:context];
+    [self createFilteredImageFromImage:main
+                              WithName:@"CIStraightenFilter"
+                              andValue:(3.14/2.0f)
+                             inContext:context];
+}
+
+-(void)createFilteredImageFromImage:(CIImage *)main
+                           WithName:(NSString *)filterName
+                           andValue:(float)filterValue
+                          inContext:(CIContext *)context
+{
+    CIFilter *filter =
+        [CIFilter filterWithName:filterName];
+    [filter setDefaults];
+    [filter setValue:main forKey:@"inputImage"];
+    [filter setValue:[NSNumber numberWithFloat: filterValue]
+              forKey:@"inputAngle"];
+    CIImage *outputImage  = [filter valueForKey:@"outputImage"];
+    CGImageRef cgImage1   = [context createCGImage:outputImage
+                                          fromRect:outputImage.extent];
     UIImage *outputImage1 = [UIImage imageWithCGImage:cgImage1];
     CGImageRelease(cgImage1);
     [self.filteredImages addObject:outputImage1];
-    CIFilter *strFilter = [CIFilter filterWithName:@"CIStraightenFilter"];
-    [strFilter setDefaults];
-    [strFilter setValue:main forKey:@"inputImage"];
-    [strFilter setValue:[NSNumber numberWithFloat:3.14f] forKey:@"inputAngle"];
-    CIImage *outputStr = [strFilter valueForKey:@"outputImage"];
-    CGImageRef cgImage2 = [context createCGImage:outputStr fromRect:outputStr.extent];
-    UIImage *outputImage2 = [UIImage imageWithCGImage:cgImage2];
-    CGImageRelease(cgImage2);
-    [self.filteredImages addObject:outputImage2];
 }
 
 @end
