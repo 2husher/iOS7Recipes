@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpI-Lg-PEg">
+                                <rect key="frame" x="32" y="28" width="536" height="250"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G2V-di-oFw">
+                                <rect key="frame" x="32" y="330" width="536" height="250"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ9-Y5-Jzk">
+                                <rect key="frame" x="266" y="289" width="68" height="30"/>
+                                <state key="normal" title="Find Face">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findFace:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WyA-2A-TaM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dpI-Lg-PEg" firstAttribute="height" secondItem="G2V-di-oFw" secondAttribute="height" id="4Rb-3Q-Ihq"/>
+                            <constraint firstItem="G2V-di-oFw" firstAttribute="top" secondItem="eZ9-Y5-Jzk" secondAttribute="bottom" constant="11" id="D2s-2l-Qsc"/>
+                            <constraint firstItem="dpI-Lg-PEg" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="HG3-tl-hDW"/>
+                            <constraint firstItem="eZ9-Y5-Jzk" firstAttribute="top" secondItem="dpI-Lg-PEg" secondAttribute="bottom" constant="11" id="Kag-jM-41F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dpI-Lg-PEg" secondAttribute="trailing" constant="16" id="TFu-xK-8KQ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="G2V-di-oFw" secondAttribute="bottom" constant="20" id="UMF-3h-7VV"/>
+                            <constraint firstAttribute="centerX" secondItem="G2V-di-oFw" secondAttribute="centerX" id="Z7g-n1-kgd"/>
+                            <constraint firstItem="dpI-Lg-PEg" firstAttribute="width" secondItem="G2V-di-oFw" secondAttribute="width" id="ca3-Am-SNY"/>
+                            <constraint firstItem="dpI-Lg-PEg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="16" id="fs1-KC-MGL"/>
+                            <constraint firstAttribute="centerX" secondItem="eZ9-Y5-Jzk" secondAttribute="centerX" id="qsL-d8-koR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="faceImageView" destination="G2V-di-oFw" id="wny-aL-oQX"/>
+                        <outlet property="findFaceButton" destination="eZ9-Y5-Jzk" id="MSC-L6-sfU"/>
+                        <outlet property="mainImageView" destination="dpI-Lg-PEg" id="Ctv-Am-Lqg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
