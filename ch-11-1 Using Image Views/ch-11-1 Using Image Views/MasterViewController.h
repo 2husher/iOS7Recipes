@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreImage/CoreImage.h>
 #import "DetailViewController.h"
 
 @interface MasterViewController : UITableViewController <DetailViewControllerDelegateProtocol>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) UIImage *mainImage;
+@property (strong, nonatomic) NSMutableArray *filteredImages;
 
 @end
 

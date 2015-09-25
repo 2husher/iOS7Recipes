@@ -16,26 +16,40 @@
 
 @implementation MasterViewController
 
+-(NSMutableArray *)filteredImages
+{
+    if (!_filteredImages)
+    {
+        _filteredImages = [[NSMutableArray alloc] initWithCapacity:3];
+    }
+    return _filteredImages;
+}
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
-    [self configureDetailItem];
 }
 
 - (void)configureDetailItem
 {
-    UIImage *image        = [[UIImage alloc] init];
-    UIImage *resizedImage = [[UIImage alloc] init];
-    UIImage *scaledImage  = [[UIImage alloc] init];
+    UIImage *image              = [[UIImage alloc] init];
+    UIImage *resizedImage       = [[UIImage alloc] init];
+    UIImage *scaledImage        = [[UIImage alloc] init];
+    UIImage *huedImage          = [[UIImage alloc] init];
+    UIImage *straightenedImage  = [[UIImage alloc] init];
     if (self.mainImage != nil)
     {
-        image = self.mainImage;
-        resizedImage = [self scaleImage:self.mainImage
+        image             = self.mainImage;
+        resizedImage      = [self scaleImage:self.mainImage
                                  toSize:self.detailViewController.imageView.frame.size];
-        scaledImage  = [self aspectScaleImage:self.mainImage
+        scaledImage       = [self aspectScaleImage:self.mainImage
                                        toSize:self.detailViewController.imageView.frame.size];
+        huedImage         = [self aspectScaleImage:self.filteredImages[0]
+                                    toSize:self.detailViewController.imageView.frame.size];
+        straightenedImage = [self aspectScaleImage:self.filteredImages[1]
+                                          toSize:self.detailViewController.imageView.frame.size];
     }
 
     self.detailElems = [@[
@@ -47,6 +61,12 @@
                              @"showsButtons" : @(NO) },
                           @{ @"label" : @"Chosen Image Scaled",
                              @"image" : scaledImage,
+                             @"showsButtons" : @(NO) },
+                          @{ @"label" : @"Hue Adjustment",
+                             @"image" : huedImage,
+                             @"showsButtons" : @(NO) },
+                          @{ @"label" : @"Straightening Filter",
+                             @"image" : straightenedImage,
                              @"showsButtons" : @(NO) }
                           ] mutableCopy];
 }
@@ -83,7 +103,8 @@
         UIGraphicsBeginImageContext(newSize);
         [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
     }
-    else {
+    else
+    {
         float ratio = size.width / image.size.width;
         CGSize newSize = CGSizeMake(size.width, image.size.height * ratio);
         UIGraphicsBeginImageContext(newSize);
@@ -128,7 +149,7 @@
     if (self.mainImage == nil)
         return 1;
     else
-        return 3;
+        return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -143,6 +164,10 @@
         cell.textLabel.text = NSLocalizedString(@"Resized Image", @"Detail");
     else if (indexPath.row == 2)
         cell.textLabel.text = NSLocalizedString(@"Scaled Image", @"Detail");
+    else if (indexPath.row == 3)
+        cell.textLabel.text = NSLocalizedString(@"Hue Adjust", @"Detail");
+    else if (indexPath.row == 4)
+        cell.textLabel.text = NSLocalizedString(@"Straighten Filter", @"Detail");
 
     return cell;
 }
@@ -173,13 +198,43 @@
 - (void)detailViewController:(DetailViewController *)controller didSelectImage:(UIImage *)image
 {
     self.mainImage = image;
+    [self populateImageViewWithImage:image];
     [self.tableView reloadData];
 }
 
 - (void)detailViewControllerDidClearImage:(DetailViewController *)controller
 {
     self.mainImage = nil;
+    [self.filteredImages removeAllObjects];
     [self.tableView reloadData];
+}
+
+# pragma mark - Other Methods
+
+-(void)populateImageViewWithImage:(UIImage *)image
+{
+    CIImage *main = [[CIImage alloc] initWithImage:image];
+    CIFilter *hueAdjust = [CIFilter filterWithName:@"CIHueAdjust"];
+    [hueAdjust setDefaults];
+    [hueAdjust setValue:main forKey:@"inputImage"];
+    [hueAdjust setValue:[NSNumber numberWithFloat: 3.14/2.0f]
+                 forKey:@"inputAngle"];
+    CIImage *outputHueAdjust = [hueAdjust valueForKey:@"outputImage"];
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef cgImage1 = [context createCGImage:outputHueAdjust
+                                        fromRect:outputHueAdjust.extent];
+    UIImage *outputImage1 = [UIImage imageWithCGImage:cgImage1];
+    CGImageRelease(cgImage1);
+    [self.filteredImages addObject:outputImage1];
+    CIFilter *strFilter = [CIFilter filterWithName:@"CIStraightenFilter"];
+    [strFilter setDefaults];
+    [strFilter setValue:main forKey:@"inputImage"];
+    [strFilter setValue:[NSNumber numberWithFloat:3.14f] forKey:@"inputAngle"];
+    CIImage *outputStr = [strFilter valueForKey:@"outputImage"];
+    CGImageRef cgImage2 = [context createCGImage:outputStr fromRect:outputStr.extent];
+    UIImage *outputImage2 = [UIImage imageWithCGImage:cgImage2];
+    CGImageRelease(cgImage2);
+    [self.filteredImages addObject:outputImage2];
 }
 
 @end

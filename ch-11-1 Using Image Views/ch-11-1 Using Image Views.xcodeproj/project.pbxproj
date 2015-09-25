@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17046A7F1BB55906001CA3E5 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17046A7E1BB55906001CA3E5 /* CoreImage.framework */; };
 		17864CB31BB191F300A6242E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17864CB21BB191F300A6242E /* main.m */; };
 		17864CB61BB191F300A6242E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17864CB51BB191F300A6242E /* AppDelegate.m */; };
 		17864CB91BB191F300A6242E /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17864CB81BB191F300A6242E /* MasterViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17046A7E1BB55906001CA3E5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		17864CAD1BB191F300A6242E /* ch-11-1 Using Image Views.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ch-11-1 Using Image Views.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17864CB11BB191F300A6242E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17864CB21BB191F300A6242E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17046A7F1BB55906001CA3E5 /* CoreImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +69,7 @@
 		17864CA41BB191F300A6242E = {
 			isa = PBXGroup;
 			children = (
+				17046A7E1BB55906001CA3E5 /* CoreImage.framework */,
 				17864CAF1BB191F300A6242E /* ch-11-1 Using Image Views */,
 				17864CCC1BB191F300A6242E /* ch-11-1 Using Image ViewsTests */,
 				17864CAE1BB191F300A6242E /* Products */,
@@ -424,6 +428,7 @@
 				17864CD51BB191F300A6242E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17864CD61BB191F300A6242E /* Build configuration list for PBXNativeTarget "ch-11-1 Using Image ViewsTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +437,7 @@
 				17864CD81BB191F300A6242E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
