@@ -31,6 +31,9 @@
 
     //draw gradient
     [self drawGradient:context];
+
+    //Call function to draw ellipse filled with a gradient
+    [self drawEllipseWithGradient:context];
 }
 
 -(void)drawRectangleAtTopOfScreen:(CGContextRef)context
@@ -149,6 +152,36 @@
 
     //Create and Draw the gradient
     CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
+}
+
+-(void)drawEllipseWithGradient:(CGContextRef)context
+{
+    CGContextSaveGState(context);
+
+    //UIGraphicsBeginImageContextWith(self.frame.size);
+    UIGraphicsBeginImageContextWithOptions((self.frame.size), NO, 0.0);
+
+    CGContextRef newContext = UIGraphicsGetCurrentContext();
+
+    // Translate and scale image to compensate for Quartz's inverted coordinate system
+    CGContextTranslateCTM(newContext, 0.0, self.frame.size.height);
+    CGContextScaleCTM(newContext, 1.0, -1.0);
+
+    //Set color of current context
+    [[UIColor blackColor] set];
+
+    //Draw ellipse <- I know we’re drawing a circle, but a circle is just a special ellipse.
+    CGRect ellipseRect = CGRectMake(110.0f, 200.0f, 100.0f, 100.0f);
+    CGContextFillEllipseInRect(newContext, ellipseRect);
+
+    CGImageRef mask = CGBitmapContextCreateImage(UIGraphicsGetCurrentContext());
+    UIGraphicsEndImageContext();
+
+    CGContextClipToMask(context, self.bounds, mask);
+
+    [self drawGradient:context];
+
+    CGContextRestoreGState(context);
 }
 
 @end
