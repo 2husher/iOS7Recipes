@@ -48,6 +48,9 @@
 {
     CGContextSaveGState(context);
 
+    //Set shadow and color of shadow
+    CGContextSetShadowWithColor(context, CGSizeZero, 10.0f, [[UIColor blackColor] CGColor]);
+
     //Set color of current context
     [[UIColor whiteColor] set];
 
@@ -108,6 +111,10 @@
                                          green:0.85f
                                           blue:0.95f
                                          alpha:1.0f];
+
+    //Set shadow and color of shadow
+    CGContextSetShadowWithColor(context, CGSizeZero, 10.0f, [[UIColor blackColor] CGColor]);
+
     //Set font
     UIFont *customFont = [UIFont fontWithName:@"OleoScriptSwashCaps-Bold"
                                          size:40.0f ];
