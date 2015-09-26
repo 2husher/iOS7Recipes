@@ -34,6 +34,14 @@
 
     //Call function to draw ellipse filled with a gradient
     [self drawEllipseWithGradient:context];
+
+    if (self.image)
+    {
+        CGFloat imageWidth  = self.frame.size.width / 2;
+        CGFloat imageHeight = self.frame.size.height / 2;
+        CGRect imageRect    = CGRectMake(imageWidth, imageHeight, imageWidth, imageHeight);
+        [self.image drawInRect:imageRect];
+    }
 }
 
 -(void)drawRectangleAtTopOfScreen:(CGContextRef)context
