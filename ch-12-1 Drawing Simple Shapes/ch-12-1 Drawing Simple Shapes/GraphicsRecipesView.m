@@ -25,6 +25,9 @@
 
     //Call function to draw arc
     [self drawArc:context];
+
+    //Call function to draw text
+    [self drawTextAtTopOfScreen:context];
 }
 
 -(void)drawRectangleAtTopOfScreen:(CGContextRef)context
@@ -92,6 +95,29 @@
     CGContextAddArc(context, 160.0f, 250.0f, 70.0f, 0.0f, 3.14, 0);
     CGContextSetLineWidth(context, 50.0f);
     CGContextDrawPath(context, kCGPathStroke);
+
+    CGContextRestoreGState(context);
+}
+
+-(void)drawTextAtTopOfScreen:(CGContextRef)context
+{
+    CGContextSaveGState(context);
+
+    //Create UIColor to pass into text attributes
+    UIColor *textColor = [UIColor colorWithRed:0.80f
+                                         green:0.85f
+                                          blue:0.95f
+                                         alpha:1.0f];
+    //Set font
+    UIFont *customFont = [UIFont fontWithName:@"OleoScriptSwashCaps-Bold"
+                                         size:40.0f ];
+    //UIFont *customFont = [UIFont systemFontOfSize:20.0f];
+    NSString *titleText = @"iOS Recipes!";
+    [titleText drawAtPoint:CGPointMake(55,5)
+            withAttributes:@{
+                             NSFontAttributeName:customFont,
+                             NSForegroundColorAttributeName:textColor
+                             }];
 
     CGContextRestoreGState(context);
 }

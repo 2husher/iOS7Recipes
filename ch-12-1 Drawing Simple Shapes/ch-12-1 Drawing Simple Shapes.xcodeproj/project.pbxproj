@@ -15,6 +15,7 @@
 		171EFA251BB69F54008D8F40 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171EFA231BB69F54008D8F40 /* LaunchScreen.xib */; };
 		171EFA311BB69F54008D8F40 /* ch_12_1_Drawing_Simple_ShapesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EFA301BB69F54008D8F40 /* ch_12_1_Drawing_Simple_ShapesTests.m */; };
 		171EFA3C1BB69F74008D8F40 /* GraphicsRecipesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EFA3B1BB69F74008D8F40 /* GraphicsRecipesView.m */; };
+		171EFA3E1BB6C061008D8F40 /* OleoScriptSwashCaps-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 171EFA3D1BB6C061008D8F40 /* OleoScriptSwashCaps-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		171EFA301BB69F54008D8F40 /* ch_12_1_Drawing_Simple_ShapesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ch_12_1_Drawing_Simple_ShapesTests.m; sourceTree = "<group>"; };
 		171EFA3A1BB69F74008D8F40 /* GraphicsRecipesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsRecipesView.h; sourceTree = "<group>"; };
 		171EFA3B1BB69F74008D8F40 /* GraphicsRecipesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicsRecipesView.m; sourceTree = "<group>"; };
+		171EFA3D1BB6C061008D8F40 /* OleoScriptSwashCaps-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OleoScriptSwashCaps-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		171EFA141BB69F54008D8F40 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				171EFA3D1BB6C061008D8F40 /* OleoScriptSwashCaps-Bold.ttf */,
 				171EFA151BB69F54008D8F40 /* Info.plist */,
 				171EFA161BB69F54008D8F40 /* main.m */,
 			);
@@ -207,6 +210,7 @@
 				171EFA201BB69F54008D8F40 /* Main.storyboard in Resources */,
 				171EFA251BB69F54008D8F40 /* LaunchScreen.xib in Resources */,
 				171EFA221BB69F54008D8F40 /* Images.xcassets in Resources */,
+				171EFA3E1BB6C061008D8F40 /* OleoScriptSwashCaps-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
