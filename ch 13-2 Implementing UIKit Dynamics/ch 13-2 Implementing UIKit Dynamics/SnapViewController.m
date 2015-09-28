@@ -17,7 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@", NSStringFromCGRect(self.blueBall.frame));
 
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 }
@@ -29,31 +28,22 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    self.blueBall.hidden = YES;
-
-//    NSString *imageFrame = NSStringFromCGRect(self.blueBall.frame);
-//    self.blueBall.frame = CGRectFromString(imageFrame);
-//    NSLog(@"%@", NSStringFromCGRect(self.blueBall.frame));
+    self.blueBall.hidden = YES; 
 }
 
 - (IBAction)handleGestureRecognizer:(UITapGestureRecognizer *)sender
 {
     CGPoint point = [sender locationInView:self.view];
+
     if ([self.animator behaviors])
     {
         [self.animator removeAllBehaviors];
-        UISnapBehavior *snapBehavior =
-            [[UISnapBehavior alloc] initWithItem:self.blueBall
-                                     snapToPoint:point];
-        [self.animator addBehavior:snapBehavior];
     }
-    else
-    {
-        UISnapBehavior *snapBehavior =
-            [[UISnapBehavior alloc] initWithItem:self.blueBall
-                                     snapToPoint:point];
-        [self.animator addBehavior:snapBehavior];
-    }
+
+    UISnapBehavior *snapBehavior =
+        [[UISnapBehavior alloc] initWithItem:self.blueBall
+                                 snapToPoint:point];
+    [self.animator addBehavior:snapBehavior];
 }
 
 @end

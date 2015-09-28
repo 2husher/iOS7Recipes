@@ -23,7 +23,8 @@
 {
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     UIGravityBehavior *gravityBehavior =
-    [[UIGravityBehavior alloc] initWithItems:@[self.blueBall]];
+        [[UIGravityBehavior alloc] initWithItems:@[self.blueBall]];
+
     [self.animator addBehavior:gravityBehavior];
 }
 

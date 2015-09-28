@@ -30,10 +30,10 @@
         [[UIPushBehavior alloc] initWithItems:@[self.ball2]
                                          mode:UIPushBehaviorModeContinuous];
 
-    instantPushBehavior.angle = -1.57;
+    instantPushBehavior.angle    = -1.57;
     continuousPushBehavior.angle = -1.57;
 
-    instantPushBehavior.magnitude = 0.5;
+    instantPushBehavior.magnitude    = 0.5;
     continuousPushBehavior.magnitude = 0.5;
 
     [self.animator addBehavior:instantPushBehavior];
