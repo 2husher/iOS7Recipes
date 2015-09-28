@@ -29,23 +29,30 @@
 {
     [super viewDidLoad];
 
-    //Create ball image and add it to the view
+    CGFloat blueBallHeightAtStart = 10.0f;
+    CGFloat blueBallWidthAtStart  = blueBallHeightAtStart;
+
     UIImage *blueBallImage = [[UIImage alloc] init];
     blueBallImage = [UIImage imageNamed:@"Ball"];
     self.blueBall = [[UIImageView alloc] initWithImage:blueBallImage];
-    self.blueBall.frame = CGRectMake(self.view.frame.size.width/2-5.0f,
+    self.blueBall.frame = CGRectMake(self.view.frame.size.width / 2 - blueBallWidthAtStart / 2,
                                      20.0f,
-                                     10.0f,
-                                     10.0f);
+                                     blueBallWidthAtStart,
+                                     blueBallHeightAtStart);
     self.blueBall.alpha = 0.0f;
     [self.view addSubview:self.blueBall];
 
+    CGFloat blueBallHeightAtFinish = 64.0f;
+    CGFloat blueBallWidthAtFinish  = blueBallHeightAtFinish;
+
     [UIView animateWithDuration:3.0f
                      animations:^{
-                         self.blueBall.frame = CGRectMake(self.view.frame.size.width/2-32.0f,
-                                                          self.view.frame.size.height/2 -32.0f,
-                                                          64.0f,
-                                                          64.0f);
+                         self.blueBall.frame = CGRectMake(self.view.frame.size.width / 2 -
+                                                          blueBallWidthAtFinish / 2,
+                                                          self.view.frame.size.height / 2 -
+                                                          blueBallHeightAtFinish / 2,
+                                                          blueBallWidthAtFinish,
+                                                          blueBallHeightAtFinish);
                          self.blueBall.alpha = 1.0f;
                      }
                      completion:^(BOOL finished){
