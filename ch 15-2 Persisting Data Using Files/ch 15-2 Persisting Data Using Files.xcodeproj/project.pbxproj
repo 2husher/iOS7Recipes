@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17AE85901BBC4B2400CB2119 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE858F1BBC4B2400CB2119 /* main.m */; };
+		17AE85931BBC4B2400CB2119 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE85921BBC4B2400CB2119 /* AppDelegate.m */; };
+		17AE85961BBC4B2400CB2119 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE85951BBC4B2400CB2119 /* ViewController.m */; };
+		17AE85991BBC4B2400CB2119 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17AE85971BBC4B2400CB2119 /* Main.storyboard */; };
+		17AE859B1BBC4B2400CB2119 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17AE859A1BBC4B2400CB2119 /* Images.xcassets */; };
+		17AE859E1BBC4B2400CB2119 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17AE859C1BBC4B2400CB2119 /* LaunchScreen.xib */; };
+		17AE85AA1BBC4B2500CB2119 /* ch_15_2_Persisting_Data_Using_FilesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE85A91BBC4B2500CB2119 /* ch_15_2_Persisting_Data_Using_FilesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		17AE85A41BBC4B2500CB2119 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17AE85821BBC4B2400CB2119 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17AE85891BBC4B2400CB2119;
+			remoteInfo = "ch 15-2 Persisting Data Using Files";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17AE858A1BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ch 15-2 Persisting Data Using Files.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17AE858E1BBC4B2400CB2119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17AE858F1BBC4B2400CB2119 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17AE85911BBC4B2400CB2119 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17AE85921BBC4B2400CB2119 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		17AE85941BBC4B2400CB2119 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		17AE85951BBC4B2400CB2119 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		17AE85981BBC4B2400CB2119 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		17AE859A1BBC4B2400CB2119 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		17AE859D1BBC4B2400CB2119 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		17AE85A31BBC4B2500CB2119 /* ch 15-2 Persisting Data Using FilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ch 15-2 Persisting Data Using FilesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17AE85A81BBC4B2500CB2119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17AE85A91BBC4B2500CB2119 /* ch_15_2_Persisting_Data_Using_FilesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ch_15_2_Persisting_Data_Using_FilesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17AE85871BBC4B2400CB2119 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17AE85A01BBC4B2500CB2119 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17AE85811BBC4B2400CB2119 = {
+			isa = PBXGroup;
+			children = (
+				17AE858C1BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files */,
+				17AE85A61BBC4B2500CB2119 /* ch 15-2 Persisting Data Using FilesTests */,
+				17AE858B1BBC4B2400CB2119 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17AE858B1BBC4B2400CB2119 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17AE858A1BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files.app */,
+				17AE85A31BBC4B2500CB2119 /* ch 15-2 Persisting Data Using FilesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17AE858C1BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files */ = {
+			isa = PBXGroup;
+			children = (
+				17AE85911BBC4B2400CB2119 /* AppDelegate.h */,
+				17AE85921BBC4B2400CB2119 /* AppDelegate.m */,
+				17AE85941BBC4B2400CB2119 /* ViewController.h */,
+				17AE85951BBC4B2400CB2119 /* ViewController.m */,
+				17AE85971BBC4B2400CB2119 /* Main.storyboard */,
+				17AE859A1BBC4B2400CB2119 /* Images.xcassets */,
+				17AE859C1BBC4B2400CB2119 /* LaunchScreen.xib */,
+				17AE858D1BBC4B2400CB2119 /* Supporting Files */,
+			);
+			path = "ch 15-2 Persisting Data Using Files";
+			sourceTree = "<group>";
+		};
+		17AE858D1BBC4B2400CB2119 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17AE858E1BBC4B2400CB2119 /* Info.plist */,
+				17AE858F1BBC4B2400CB2119 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17AE85A61BBC4B2500CB2119 /* ch 15-2 Persisting Data Using FilesTests */ = {
+			isa = PBXGroup;
+			children = (
+				17AE85A91BBC4B2500CB2119 /* ch_15_2_Persisting_Data_Using_FilesTests.m */,
+				17AE85A71BBC4B2500CB2119 /* Supporting Files */,
+			);
+			path = "ch 15-2 Persisting Data Using FilesTests";
+			sourceTree = "<group>";
+		};
+		17AE85A71BBC4B2500CB2119 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17AE85A81BBC4B2500CB2119 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17AE85891BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17AE85AD1BBC4B2500CB2119 /* Build configuration list for PBXNativeTarget "ch 15-2 Persisting Data Using Files" */;
+			buildPhases = (
+				17AE85861BBC4B2400CB2119 /* Sources */,
+				17AE85871BBC4B2400CB2119 /* Frameworks */,
+				17AE85881BBC4B2400CB2119 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ch 15-2 Persisting Data Using Files";
+			productName = "ch 15-2 Persisting Data Using Files";
+			productReference = 17AE858A1BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files.app */;
+			productType = "com.apple.product-type.application";
+		};
+		17AE85A21BBC4B2500CB2119 /* ch 15-2 Persisting Data Using FilesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17AE85B01BBC4B2500CB2119 /* Build configuration list for PBXNativeTarget "ch 15-2 Persisting Data Using FilesTests" */;
+			buildPhases = (
+				17AE859F1BBC4B2500CB2119 /* Sources */,
+				17AE85A01BBC4B2500CB2119 /* Frameworks */,
+				17AE85A11BBC4B2500CB2119 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17AE85A51BBC4B2500CB2119 /* PBXTargetDependency */,
+			);
+			name = "ch 15-2 Persisting Data Using FilesTests";
+			productName = "ch 15-2 Persisting Data Using FilesTests";
+			productReference = 17AE85A31BBC4B2500CB2119 /* ch 15-2 Persisting Data Using FilesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17AE85821BBC4B2400CB2119 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Alex Izotov";
+				TargetAttributes = {
+					17AE85891BBC4B2400CB2119 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					17AE85A21BBC4B2500CB2119 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 17AE85891BBC4B2400CB2119;
+					};
+				};
+			};
+			buildConfigurationList = 17AE85851BBC4B2400CB2119 /* Build configuration list for PBXProject "ch 15-2 Persisting Data Using Files" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 17AE85811BBC4B2400CB2119;
+			productRefGroup = 17AE858B1BBC4B2400CB2119 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17AE85891BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files */,
+				17AE85A21BBC4B2500CB2119 /* ch 15-2 Persisting Data Using FilesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17AE85881BBC4B2400CB2119 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17AE85991BBC4B2400CB2119 /* Main.storyboard in Resources */,
+				17AE859E1BBC4B2400CB2119 /* LaunchScreen.xib in Resources */,
+				17AE859B1BBC4B2400CB2119 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17AE85A11BBC4B2500CB2119 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17AE85861BBC4B2400CB2119 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17AE85961BBC4B2400CB2119 /* ViewController.m in Sources */,
+				17AE85931BBC4B2400CB2119 /* AppDelegate.m in Sources */,
+				17AE85901BBC4B2400CB2119 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17AE859F1BBC4B2500CB2119 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17AE85AA1BBC4B2500CB2119 /* ch_15_2_Persisting_Data_Using_FilesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		17AE85A51BBC4B2500CB2119 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17AE85891BBC4B2400CB2119 /* ch 15-2 Persisting Data Using Files */;
+			targetProxy = 17AE85A41BBC4B2500CB2119 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		17AE85971BBC4B2400CB2119 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17AE85981BBC4B2400CB2119 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		17AE859C1BBC4B2400CB2119 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17AE859D1BBC4B2400CB2119 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17AE85AB1BBC4B2500CB2119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17AE85AC1BBC4B2500CB2119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17AE85AE1BBC4B2500CB2119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ch 15-2 Persisting Data Using Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		17AE85AF1BBC4B2500CB2119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ch 15-2 Persisting Data Using Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		17AE85B11BBC4B2500CB2119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ch 15-2 Persisting Data Using FilesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ch 15-2 Persisting Data Using Files.app/ch 15-2 Persisting Data Using Files";
+			};
+			name = Debug;
+		};
+		17AE85B21BBC4B2500CB2119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ch 15-2 Persisting Data Using FilesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ch 15-2 Persisting Data Using Files.app/ch 15-2 Persisting Data Using Files";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17AE85851BBC4B2400CB2119 /* Build configuration list for PBXProject "ch 15-2 Persisting Data Using Files" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17AE85AB1BBC4B2500CB2119 /* Debug */,
+				17AE85AC1BBC4B2500CB2119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17AE85AD1BBC4B2500CB2119 /* Build configuration list for PBXNativeTarget "ch 15-2 Persisting Data Using Files" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17AE85AE1BBC4B2500CB2119 /* Debug */,
+				17AE85AF1BBC4B2500CB2119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		17AE85B01BBC4B2500CB2119 /* Build configuration list for PBXNativeTarget "ch 15-2 Persisting Data Using FilesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17AE85B11BBC4B2500CB2119 /* Debug */,
+				17AE85B21BBC4B2500CB2119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17AE85821BBC4B2400CB2119 /* Project object */;
+}
