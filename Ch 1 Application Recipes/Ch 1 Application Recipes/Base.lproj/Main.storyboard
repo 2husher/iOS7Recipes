@@ -25,10 +25,32 @@
                                     <action selector="clickMe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3z-3I-iUB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct8-QX-Nnf">
+                                <rect key="frame" x="239" y="99" width="123" height="30"/>
+                                <state key="normal" title="Fake A Fatal Error">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fakeFatalError:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pP0-ly-Nn3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuX-Sd-Gn3">
+                                <rect key="frame" x="222" y="61" width="157" height="30"/>
+                                <state key="normal" title="Fake A Non-Fatal Error">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fakeNonFatalError:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wOo-Gw-pX9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Ct8-QX-Nnf" firstAttribute="top" secondItem="vuX-Sd-Gn3" secondAttribute="bottom" constant="8" id="I0j-FQ-wha"/>
+                            <constraint firstItem="vuX-Sd-Gn3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="MYB-Xd-Cje"/>
                             <constraint firstAttribute="centerY" secondItem="Hdc-nf-MI8" secondAttribute="centerY" id="cx2-z1-Rbk"/>
+                            <constraint firstAttribute="centerX" secondItem="vuX-Sd-Gn3" secondAttribute="centerX" constant="-0.5" id="gyb-0p-Kg9"/>
+                            <constraint firstAttribute="centerX" secondItem="Ct8-QX-Nnf" secondAttribute="centerX" constant="-0.5" id="mOK-1J-RAq"/>
                             <constraint firstAttribute="centerX" secondItem="Hdc-nf-MI8" secondAttribute="centerX" id="riB-kj-lbz"/>
                         </constraints>
                     </view>

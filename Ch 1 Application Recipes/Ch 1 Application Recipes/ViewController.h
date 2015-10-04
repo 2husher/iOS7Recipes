@@ -14,5 +14,8 @@
 
 -(IBAction)clickMe:(id)sender;
 
+-(IBAction)fakeNonFatalError:(id)sender;
+-(IBAction)fakeFatalError:(id)sender;
+
 @end
 

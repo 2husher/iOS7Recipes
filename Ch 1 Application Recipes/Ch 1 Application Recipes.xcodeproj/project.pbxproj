@@ -14,6 +14,7 @@
 		17B77ACD1BC17E3E0067449D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17B77ACC1BC17E3E0067449D /* Images.xcassets */; };
 		17B77AD01BC17E3E0067449D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B77ACE1BC17E3E0067449D /* LaunchScreen.xib */; };
 		17B77ADC1BC17E3E0067449D /* Ch_1_Application_RecipesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B77ADB1BC17E3E0067449D /* Ch_1_Application_RecipesTests.m */; };
+		17B77AE71BC18C0E0067449D /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B77AE61BC18C0E0067449D /* ErrorHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		17B77AD51BC17E3E0067449D /* Ch 1 Application RecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ch 1 Application RecipesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B77ADA1BC17E3E0067449D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17B77ADB1BC17E3E0067449D /* Ch_1_Application_RecipesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ch_1_Application_RecipesTests.m; sourceTree = "<group>"; };
+		17B77AE51BC18C0E0067449D /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorHandler.h; sourceTree = "<group>"; };
+		17B77AE61BC18C0E0067449D /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				17B77AC41BC17E3E0067449D /* AppDelegate.m */,
 				17B77AC61BC17E3E0067449D /* ViewController.h */,
 				17B77AC71BC17E3E0067449D /* ViewController.m */,
+				17B77AE51BC18C0E0067449D /* ErrorHandler.h */,
+				17B77AE61BC18C0E0067449D /* ErrorHandler.m */,
 				17B77AC91BC17E3E0067449D /* Main.storyboard */,
 				17B77ACC1BC17E3E0067449D /* Images.xcassets */,
 				17B77ACE1BC17E3E0067449D /* LaunchScreen.xib */,
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B77AC81BC17E3E0067449D /* ViewController.m in Sources */,
+				17B77AE71BC18C0E0067449D /* ErrorHandler.m in Sources */,
 				17B77AC51BC17E3E0067449D /* AppDelegate.m in Sources */,
 				17B77AC21BC17E3E0067449D /* main.m in Sources */,
 			);
