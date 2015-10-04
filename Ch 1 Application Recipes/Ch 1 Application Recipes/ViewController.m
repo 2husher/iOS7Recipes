@@ -14,14 +14,30 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.myButton setTitle:@"Click Me" forState:UIControlStateNormal];
 }
 
-- (void)didReceiveMemoryWarning {
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//
+//}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)clickMe:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert You!"
+                                                    message:@"This is my alert"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Undertand"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
