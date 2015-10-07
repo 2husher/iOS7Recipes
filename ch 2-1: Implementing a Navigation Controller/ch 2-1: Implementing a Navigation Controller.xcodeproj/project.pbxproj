@@ -14,6 +14,9 @@
 		1726DDCF1BC507110015402B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1726DDCE1BC507110015402B /* Images.xcassets */; };
 		1726DDD21BC507110015402B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1726DDD01BC507110015402B /* LaunchScreen.xib */; };
 		1726DDDE1BC507110015402B /* ch_2_1__Implementing_a_Navigation_ControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1726DDDD1BC507110015402B /* ch_2_1__Implementing_a_Navigation_ControllerTests.m */; };
+		17812DA51BC54CA40023E71A /* AppDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 17812DA41BC54CA40023E71A /* AppDetails.m */; };
+		17812DA81BC54D720023E71A /* AppDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17812DA71BC54D720023E71A /* AppDetailsViewController.m */; };
+		17812DAB1BC54E2D0023E71A /* OurAppsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17812DAA1BC54E2D0023E71A /* OurAppsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		1726DDD71BC507110015402B /* ch 2-1: Implementing a Navigation ControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ch 2-1: Implementing a Navigation ControllerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1726DDDC1BC507110015402B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1726DDDD1BC507110015402B /* ch_2_1__Implementing_a_Navigation_ControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ch_2_1__Implementing_a_Navigation_ControllerTests.m; sourceTree = "<group>"; };
+		17812DA31BC54CA40023E71A /* AppDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDetails.h; sourceTree = "<group>"; };
+		17812DA41BC54CA40023E71A /* AppDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetails.m; sourceTree = "<group>"; };
+		17812DA61BC54D720023E71A /* AppDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDetailsViewController.h; sourceTree = "<group>"; };
+		17812DA71BC54D720023E71A /* AppDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetailsViewController.m; sourceTree = "<group>"; };
+		17812DA91BC54E2D0023E71A /* OurAppsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurAppsTableViewController.h; sourceTree = "<group>"; };
+		17812DAA1BC54E2D0023E71A /* OurAppsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OurAppsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +90,9 @@
 		1726DDC01BC507100015402B /* ch 2-1: Implementing a Navigation Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1726DDC51BC507100015402B /* AppDelegate.h */,
-				1726DDC61BC507100015402B /* AppDelegate.m */,
-				1726DDC81BC507100015402B /* ViewController.h */,
-				1726DDC91BC507100015402B /* ViewController.m */,
-				1726DDCB1BC507110015402B /* Main.storyboard */,
+				17812DAC1BC54E520023E71A /* Controllers */,
+				17812DAD1BC54E610023E71A /* Models */,
+				17812DAE1BC54E6E0023E71A /* Storyboards */,
 				1726DDCE1BC507110015402B /* Images.xcassets */,
 				1726DDD01BC507110015402B /* LaunchScreen.xib */,
 				1726DDC11BC507100015402B /* Supporting Files */,
@@ -117,6 +124,38 @@
 				1726DDDC1BC507110015402B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17812DAC1BC54E520023E71A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1726DDC51BC507100015402B /* AppDelegate.h */,
+				1726DDC61BC507100015402B /* AppDelegate.m */,
+				1726DDC81BC507100015402B /* ViewController.h */,
+				1726DDC91BC507100015402B /* ViewController.m */,
+				17812DA61BC54D720023E71A /* AppDetailsViewController.h */,
+				17812DA71BC54D720023E71A /* AppDetailsViewController.m */,
+				17812DA91BC54E2D0023E71A /* OurAppsTableViewController.h */,
+				17812DAA1BC54E2D0023E71A /* OurAppsTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		17812DAD1BC54E610023E71A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17812DA31BC54CA40023E71A /* AppDetails.h */,
+				17812DA41BC54CA40023E71A /* AppDetails.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		17812DAE1BC54E6E0023E71A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1726DDCB1BC507110015402B /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +258,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17812DAB1BC54E2D0023E71A /* OurAppsTableViewController.m in Sources */,
 				1726DDCA1BC507100015402B /* ViewController.m in Sources */,
 				1726DDC71BC507100015402B /* AppDelegate.m in Sources */,
+				17812DA81BC54D720023E71A /* AppDetailsViewController.m in Sources */,
+				17812DA51BC54CA40023E71A /* AppDetails.m in Sources */,
 				1726DDC41BC507100015402B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +460,7 @@
 				1726DDE31BC507110015402B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1726DDE41BC507110015402B /* Build configuration list for PBXNativeTarget "ch 2-1: Implementing a Navigation ControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +469,7 @@
 				1726DDE61BC507110015402B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
